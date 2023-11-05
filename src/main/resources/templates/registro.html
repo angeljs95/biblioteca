@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<head th:replace="/templates.fragments/head :: head"/>
+<body style="background-color: grey">
+
+<nav th:insert="/templates.fragments/navbar.html :: nav" />
+<br>
+<header style="text-align: center">
+    <div class="container"  >
+        <h1>Registrate Aqui</h1>
+        <br>
+    </div>
+</header>
+<div class="container" style="text-align: center" >
+
+    <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError" >
+        <div class="card-body">
+            <h5 class="card-title">Error 👎</h5>
+            <p class="card-text" th:text="${error}"></p>
+        </div>
+    </div>
+    <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+        <div class="card-body">
+            <h5 class="card-title">Exito!</h5>
+            <p class="card-text" th:text="${exito}"></p>
+        </div>
+    </div>
+
+
+    <form class="mb-4" th:action="@{/registro}" method="POST" enctype="multipart/form-data">
+
+
+
+ <div class="col-md-auto " >
+            <label for="nombre" class="form-label" > Ingrese su Nombre </label><br>
+            <input type="Text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" th:value="${nombre}">
+        </div>
+
+        <div class="col-md-auto " >
+            <label  class="form-label" >Ingrese una imagen</label><br>
+            <input type="file" class="form-control" name="archivo" placeholder="Añadir imagen">
+        </div>
+
+        <div class="col-md-auto " >
+            <label for="email" class="form-label" >Ingrese su correo Electronicop</label><br>
+            <input type="email" class="form-control" id= "email" name="email" placeholder="CorreoElectronico" th:value="${email}">
+        </div>
+        <div class="col-md-auto " >
+            <label for="contraseña" class="form-label" > Ingrese Contraseña </label><br>
+            <input type="password" class="form-control" id="contraseña" name="password" placeholder="Contraseña" th:value="${password}">
+        </div>
+        <div class="col-md-auto " >
+            <label for="Rcontraseña" class="form-label" > Repita la Contraseña </label><br>
+            <input type="password" class="form-control" id="Rcontraseña" name="password2" placeholder="Repite contraseña" th:value="${password2}">
+        </div>
+
+        <br>
+
+        <div class="col-12">
+            <button class="btn btn-primary w-50 py-2" type="submit" >Registrarme</button>
+
+        </div>
+
+    </form>
+    <section class=" text-center container">
+
+
+                <a th:href="@{/}" class="btn btn-primary">Volver</a>
+
+
+    </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
